@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="Assest\css\style.css">
+<link rel="stylesheet" href="Assest\css\response.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="logo">Portfolio.</a>
+    <div class="hamburger" id="hamburger">
+      <i class='bx bx-menu'></i>
+    </div>
+    <ul id="nav-menu">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Service</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="bars-animation">
+    <div class="bar" style="--i:6;"></div>
+    <div class="bar" style="--i:5;"></div>
+    <div class="bar" style="--i:4;"></div>
+    <div class="bar" style="--i:3;"></div>
+    <div class="bar" style="--i:2;"></div>
+    <div class="bar" style="--i:1;"></div>
+  </div>
+<style>
+    .home h2 {
+  font-size: 32px;
+  margin: 10px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home h2 span {
+  position: absolute;
+  opacity: 0;
+  animation: textChange 6s infinite;
+  left: 120px; /* adjust according to your heading width */
+}
+
+/* Delay each word using CSS variable --i */
+.home h2 span:nth-child(2) {
+  animation-delay: calc(3s * var(--i));
+}
+
+@keyframes textChange {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
+}
+
+</style>
+  <section class="home">
+    <div class="home-info">
+      <h1>Hassan Maredia</h1>
+      <center>
+
+          <h2>I'm a
+            <span style="--i:1;" data-text="Frontend Developer">Frontend Developer</span>
+            <span style="--i:1;" data-text="Designer">Designer</span>
+          </h2>
+      </center>
+      <p>I am an enthusiastic and highly motivated Junior Frontend Developer dedicated to building clean, maintainable, and user-friendly digital experiences. My core focus is delivering exceptional frontends while committing to best practices and continuous learning.</p>
+      <div class="btn-sci">
+        <a href="#" class="btn">Download CV</a>
+        <div class="sci">
+          <a href="https://github.com/hasu786"><i class='bx bxl-github'></i></a>
+          <a href="#"><i class='bx bxl-linkedin'></i></a>
+          <a href="#"><i class='bx bxl-twitter'></i></a>
+          <a href="#"><i class='bx bxl-instagram'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-img">
+      <div class="img-box">
+        <div class="img-item" style="width: 400px;">
+          <img src="Assest\image\home.png" >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      // Change hamburger icon
+      const icon = hamburger.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('bx-menu');
+        icon.classList.add('bx-x');
+      } else {
+        icon.classList.remove('bx-x');
+        icon.classList.add('bx-menu');
+      }
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('bx-x');
+        icon.classList.add('bx-menu');
+      });
+    });
+  </script>
+</body>
+
+</html>
